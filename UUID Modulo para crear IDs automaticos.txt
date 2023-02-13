@@ -1,0 +1,2 @@
+from uuid import uuid4
+from uuid import uuid4 as uuid (si quiero personalizar el nombre con que se llama a la blibioteca)
