@@ -3,6 +3,8 @@
 #Solo se mantendran temporalmente almacenaos en la memoria de trabajo (RAM)
 
 from typing import Optional
+from uuid import uuid4 as uuid
+
 from fastapi import FastAPI
 from pydantic import BaseModel
 
@@ -27,6 +29,7 @@ def obtener_producto():
 
 @app.post('/producto')
 def crear_producto(producto: Producto):
+    producto.id = str(uuid())
     productos.append(producto)
     return {'mensaje': 'Producto creado sastisfactoriamente.'}
 
