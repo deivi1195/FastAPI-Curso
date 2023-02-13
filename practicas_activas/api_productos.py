@@ -6,7 +6,7 @@ from typing import Optional
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-class productos(BaseModel):
+class Producto(BaseModel):
     id: Optional[str]
     nombre: str
     precio_compra: float
@@ -24,5 +24,10 @@ def index():
 @app.get('/producto')
 def obtener_producto():
     return productos
+
+@app.post('/producto')
+def crear_producto(producto: Producto):
+    productos.append(producto)
+    return {'mensaje': 'Producto creado sastisfactoriamente.'}
 
 
